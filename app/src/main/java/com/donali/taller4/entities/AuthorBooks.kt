@@ -3,7 +3,6 @@ package com.donali.taller4.entities
 import androidx.room.Entity
 import androidx.room.ForeignKey
 
-
 @Entity(
     tableName = "author_books",
     primaryKeys = ["authorId","bookId"],
@@ -12,7 +11,7 @@ import androidx.room.ForeignKey
         ForeignKey(entity = Author::class,parentColumns = ["id"],childColumns = ["authorId"])
     ]
 )
-data class AuthorBooks (
-    val aurhorId: Long,
-    val bookId: Long
+data class AuthorBooks(
+    val authorId:Long,
+    val bookId:Long
 )
