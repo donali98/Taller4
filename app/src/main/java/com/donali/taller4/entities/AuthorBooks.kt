@@ -1,4 +1,18 @@
 package com.donali.taller4.entities
 
-class AuthorBooks {
-}
+import androidx.room.Entity
+import androidx.room.ForeignKey
+
+
+@Entity(
+    tableName = "author_books",
+    primaryKeys = ["authorId","bookId"],
+    foreignKeys = [
+        ForeignKey(entity = Book::class,parentColumns = ["id"],childColumns = ["bookId"]),
+        ForeignKey(entity = Author::class,parentColumns = ["id"],childColumns = ["authorId"])
+    ]
+)
+data class AuthorBooks (
+    val aurhorId: Long,
+    val bookId: Long
+)
