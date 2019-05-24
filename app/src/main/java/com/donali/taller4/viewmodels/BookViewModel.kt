@@ -17,10 +17,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BookViewModel(app: Application): AndroidViewModel(app) {
-    private val bookRepository:BookRepository
+    private val bookRepository: BookRepository
     private val authorRepository:AuthorRepository
     private val authorBooksRepository:AuthorBooksRepository
-
 
     init {
         val bookDao = RoomDB.getInstance(app,viewModelScope).bookDao()
