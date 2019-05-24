@@ -5,22 +5,21 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.donali.bookapppractice.RoomDB
-import com.donali.bookapppractice.entities.Author
-import com.donali.bookapppractice.entities.AuthorBooks
-import com.donali.bookapppractice.entities.Book
-import com.donali.bookapppractice.entities.BookWithAuthors
-import com.donali.bookapppractice.repositories.AuthorBooksRepository
-import com.donali.bookapppractice.repositories.AuthorRepository
-import com.donali.bookapppractice.repositories.BookRepository
+import com.donali.taller4.RoomDB
+import com.donali.taller4.entities.Author
+import com.donali.taller4.entities.AuthorBooks
+import com.donali.taller4.entities.Book
+import com.donali.taller4.entities.BookWithAuthors
+import com.donali.taller4.repositories.AuthorBooksRepository
+import com.donali.taller4.repositories.AuthorRepository
+import com.donali.taller4.repositories.BookRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BookViewModel(app: Application): AndroidViewModel(app) {
-    private val bookRepository:BookRepository
+    private val bookRepository: BookRepository
     private val authorRepository:AuthorRepository
     private val authorBooksRepository:AuthorBooksRepository
-
 
     init {
         val bookDao = RoomDB.getInstance(app,viewModelScope).bookDao()
