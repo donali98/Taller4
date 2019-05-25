@@ -17,12 +17,6 @@ import com.donali.taller4.entities.BookWithAuthors
 import com.donali.taller4.helpers.ActivityHelper
 import com.donali.taller4.viewmodels.BookViewModel
 
-lateinit var bookList: RecyclerView
-lateinit var activityHelper: ActivityHelper
-lateinit var bookViewModel: BookViewModel
-lateinit var btnAdd: Button
-lateinit var etTitle: EditText
-lateinit var bookAdapter: BookAdapter
 
 class BookFragment : Fragment() {
     lateinit var bookList: RecyclerView
@@ -51,11 +45,13 @@ class BookFragment : Fragment() {
 
         bookViewModel = activityHelper.getViewModel()
         val clickListen = fun(bookWithAuthor: BookWithAuthors, tvBookName: TextView) {
+
             names = arrayListOf()
+
             for (item in bookWithAuthor.authorsIdList) {
                 names.add(item.toString())
             }
-            val bookInfoFragment = BookInfoFragment.newInstance(tvBookName.text.toString(), names)
+            val bookInfoFragment = BookInfoFragment.newInstance(tvBookName.text.toString(), names,bookWithAuthor.book.editorialId.toString())
             activityHelper.getCustomSupportFragmentMananager().beginTransaction()
                 .replace(R.id.fl_main_container, bookInfoFragment)
                 .addToBackStack("c")

@@ -34,6 +34,7 @@ class BookAdapter(val clickListener:(BookWithAuthors, TextView)->Unit, val bookV
             cvFavorite = findViewById(R.id.cv_favorite)
             tvBookTitle.text = bookWithAuthor.book.title
             cvFavorite.isChecked = bookWithAuthor.book.isFavorite
+
            /* cvFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
                 bookViewModel.updateFavorite(isChecked,bookWithAuthor.book.id)
             }*/
