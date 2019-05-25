@@ -41,10 +41,12 @@ public abstract class RoomDB: RoomDatabase() {
             authorBooksDao: AuthorBooksDao,
             editorialDao:EditorialDao
         ){
+/*
             authorBooksDao.deleteAll()
             bookDao.deleteBooks()
             editorialDao.deleteAll()
             authorDao.deleteAll()
+*/
 
 
 //            Log.d("CUSTOM",author.toString())

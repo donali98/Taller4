@@ -1,5 +1,6 @@
 package com.donali.taller4
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,8 +34,12 @@ class BookAdapter(val clickListener:(BookWithAuthors, TextView)->Unit, val bookV
             cvFavorite = findViewById(R.id.cv_favorite)
             tvBookTitle.text = bookWithAuthor.book.title
             cvFavorite.isChecked = bookWithAuthor.book.isFavorite
-            cvFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
+           /* cvFavorite.setOnCheckedChangeListener { buttonView, isChecked ->
                 bookViewModel.updateFavorite(isChecked,bookWithAuthor.book.id)
+            }*/
+            cvFavorite.setOnClickListener {
+                bookViewModel.updateFavorite(cvFavorite.isChecked,bookWithAuthor.book.id)
+
             }
             this.setOnClickListener{clickListener(bookWithAuthor,tvBookTitle)}
 ///*            for(authId in bookWithAuthor.authorsIdList){
